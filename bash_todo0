@@ -6,17 +6,19 @@ echo -e "Your current directory is: $dir "
 
 echo
 while true; do
-	echo "Select an option [1-9]"
+	echo "Select an option [1-11]"
 	echo "-----------------------"
 	echo "1.Create a new directory"
 	echo "2.Delete an existing directory"
 	echo "3.List the contents of a directory"
 	echo "4.Change into a directory"
-	echo "5.Create a new file"
-	echo "6.Write to an existing file"
-	echo "7.Read from an existing file"
-	echo "8.Delete an existing file"
-	echo "9.Exit the script."
+	echo "5.Find a directory"
+	echo "6.Create a new file"
+	echo "7.Write to an existing file"
+	echo "8.Read from an existing file"
+	echo "9.Delete an existing file"
+	echo "10.Find a File."
+	echo "11.Exit the script."
 
 	read choice
 
@@ -114,8 +116,15 @@ case $choice in
 			echo
 		fi
 		;;
-		
+
 	5)
+		echo -e "Enter the name of the directory"
+		read dirfind
+		find -type d -name "$dirfind*"
+		echo
+		;;
+		
+	6)
 		dir=$(pwd)
 		echo "Are you in the right directory (y/n): "
 		read input
@@ -155,7 +164,7 @@ case $choice in
 		fi
 		;;
 	
-	6)
+	7)
 		dir=$(pwd)
 		echo "Are you in the right directory (y/n): "
 		read input
@@ -194,7 +203,7 @@ case $choice in
 			echo
 		fi
 		;;
-	7)
+	8)
 		dir=$(pwd)
 		echo "Are you in the right directory (y/n): "
 		read input
@@ -230,7 +239,7 @@ case $choice in
 		fi
 		;;
 	
-	8)
+	9)
 		dir=$(pwd)
 		echo "Are you in the right directory (y/n): "
 		read input
@@ -266,7 +275,14 @@ case $choice in
 			echo
 		fi
 		;;
-	9)
+	10)
+		echo -e "Enter the name of the File"
+		read filefind
+		find -type f -name "$filefind*"
+		echo
+		;;
+
+	11)
 		exit 1
 		;;
 esac
