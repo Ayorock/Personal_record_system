@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo -e "Backup  script"
+
+echo -e "Enter the File to backup" 
+read backup_files
+dest="/home/aborisade/Personal_record_system/backups/$(date +%Y%m%d).tar"
+    
+    
+echo -e "Backing up $backup_files to $dest"
+date
+echo
+    
+# Backup the files using tar.
+tar czf $dest $backup_files
+    
+# Print end status message.
+echo
+echo "Backup finished"
+date
+    
+# Long listing of files in $dest to check file sizes.
+ls -lh $dest
